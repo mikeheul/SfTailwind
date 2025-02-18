@@ -1,0 +1,961 @@
+{# templates/tailwind_demo.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Playground TailwindCSS{% endblock %}
+
+{% block body %}
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl font-bold text-center mb-10">Playground TailwindCSS</h1>
+
+        {# Boutons #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Boutons</h2>
+            <div class="flex flex-col sm:flex-row gap-2">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Bouton Primaire</button>
+                <button class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Bouton Secondaire</button>
+                <button class="border border-gray-500 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-100">Bouton Tertiaire</button>
+            </div>
+        </section>
+        
+        {# Badges #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Badges</h2>
+            <div class="flex flex-col sm:flex-row gap-2">
+                <span class="bg-blue-500 text-white text-xs font-bold py-1 px-3 rounded-full">Nouveau</span>
+                <span class="bg-green-500 text-white text-xs font-bold py-1 px-3 rounded-full">Publié</span>
+                <span class="bg-red-500 text-white text-xs font-bold py-1 px-3 rounded-full">Urgent</span>
+            </div>
+        </section>
+
+        {# Toast notification #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Notification</h2>
+            <button class="bg-green-500 text-white px-4 py-2 rounded-lg" id="showToast">Afficher Notification</button>
+        </section>
+        
+        <div id="toast" class="fixed bottom-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 opacity-0 translate-y-12">
+            <p>Succès ! Votre action a été réalisée</p>
+        </div>
+
+        {# Cartes #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Cartes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-bold">Carte Simple</h3>
+                    <p class="text-gray-600">Ceci est une carte simple avec du texte.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-700 shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-bold dark:text-white">Carte Simple</h3>
+                    <p class="text-gray-600 dark:text-white">Ceci est une carte simple avec du texte.</p>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <img src="https://placehold.co/600x400" class="rounded-lg mb-4" alt="Image">
+                    <h3 class="text-xl font-bold">Carte avec image</h3>
+                    <p class="text-gray-600">Une carte avec une image et du texte.</p>
+                </div>
+                <div class="bg-blue-500 text-white shadow-lg rounded-lg p-6 hover:bg-blue-600 transition">
+                    <h3 class="text-xl font-bold">Carte Interactive</h3>
+                    <p>Une carte avec effet de hover.</p>
+                </div>
+            </div>
+        </section>
+
+        {# Formulaires #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Formulaires</h2>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-gray-700">Nom</label>
+                    <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Entrez votre nom">
+                </div>
+                <div>
+                    <label class="block text-gray-700">Email</label>
+                    <input type="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Entrez votre email">
+                </div>
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">Envoyer</button>
+            </form>
+        </section>
+
+        {# Mises en page #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Mises en Page</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div class="bg-gray-200 p-6 rounded-lg">Colonne 1</div>
+                <div class="bg-gray-300 p-6 rounded-lg">Colonne 2</div>
+                <div class="bg-gray-400 p-6 rounded-lg">Colonne 3</div>
+            </div>
+        </section>
+
+        {# Typographie #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Typographie</h2>
+            <p class="text-lg">Ceci est un paragraphe normal.</p>
+            <p class="text-gray-500 italic">Ceci est un texte en italique et en gris.</p>
+            <ul class="list-disc pl-5">
+                <li>Élément de liste 1</li>
+                <li>Élément de liste 2</li>
+                <li>Élément de liste 3</li>
+            </ul>
+        </section>
+        
+        {# Couleurs #}
+        <section class="mb-12">
+            <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-9 gap-4">
+    
+                <!-- Rouge -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-red-100 rounded-lg h-24">
+                    red-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-red-200 rounded-lg h-24">
+                    red-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-red-300 rounded-lg h-24">
+                    red-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-red-400 rounded-lg h-24">
+                    red-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-red-500 rounded-lg h-24">
+                    red-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-red-600 rounded-lg h-24">
+                    red-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-red-700 rounded-lg h-24">
+                    red-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-red-800 rounded-lg h-24">
+                    red-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-red-900 rounded-lg h-24">
+                    red-900
+                </div>
+        
+                <!-- Orange -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-orange-100 rounded-lg h-24">
+                    orange-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-orange-200 rounded-lg h-24">
+                    orange-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-orange-300 rounded-lg h-24">
+                    orange-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-orange-400 rounded-lg h-24">
+                    orange-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-orange-500 rounded-lg h-24">
+                    orange-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-orange-600 rounded-lg h-24">
+                    orange-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-orange-700 rounded-lg h-24">
+                    orange-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-orange-800 rounded-lg h-24">
+                    orange-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-orange-900 rounded-lg h-24">
+                    orange-900
+                </div>
+    
+                <!-- Amber -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-amber-100 rounded-lg h-24">
+                    amber-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-amber-200 rounded-lg h-24">
+                    amber-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-amber-300 rounded-lg h-24">
+                    amber-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-amber-400 rounded-lg h-24">
+                    amber-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-amber-500 rounded-lg h-24">
+                    amber-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-amber-600 rounded-lg h-24">
+                    amber-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-amber-700 rounded-lg h-24">
+                    amber-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-amber-800 rounded-lg h-24">
+                    amber-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-amber-900 rounded-lg h-24">
+                    amber-900
+                </div>
+        
+                <!-- Jaune -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-yellow-100 rounded-lg h-24">
+                    yellow-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-yellow-200 rounded-lg h-24">
+                    yellow-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-yellow-300 rounded-lg h-24">
+                    yellow-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-yellow-400 rounded-lg h-24">
+                    yellow-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-yellow-500 rounded-lg h-24">
+                    yellow-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-yellow-600 rounded-lg h-24">
+                    yellow-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-yellow-700 rounded-lg h-24">
+                    yellow-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-yellow-800 rounded-lg h-24">
+                    yellow-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-yellow-900 rounded-lg h-24">
+                    yellow-900
+                </div>
+    
+                <!-- Lime -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-lime-100 rounded-lg h-24">
+                    lime-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-lime-200 rounded-lg h-24">
+                    lime-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-lime-300 rounded-lg h-24">
+                    lime-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-lime-400 rounded-lg h-24">
+                    lime-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-lime-500 rounded-lg h-24">
+                    lime-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-lime-600 rounded-lg h-24">
+                    lime-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-lime-700 rounded-lg h-24">
+                    lime-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-lime-800 rounded-lg h-24">
+                    lime-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-lime-900 rounded-lg h-24">
+                    lime-900
+                </div>
+        
+                <!-- Vert -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-green-100 rounded-lg h-24">
+                    green-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-green-200 rounded-lg h-24">
+                    green-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-green-300 rounded-lg h-24">
+                    green-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-green-400 rounded-lg h-24">
+                    green-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-green-500 rounded-lg h-24">
+                    green-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-green-600 rounded-lg h-24">
+                    green-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-green-700 rounded-lg h-24">
+                    green-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-green-800 rounded-lg h-24">
+                    green-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-green-900 rounded-lg h-24">
+                    green-900
+                </div>
+    
+                <!-- Vert -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-emerald-100 rounded-lg h-24">
+                    emerald-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-emerald-200 rounded-lg h-24">
+                    emerald-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-emerald-300 rounded-lg h-24">
+                    emerald-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-emerald-400 rounded-lg h-24">
+                    emerald-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-emerald-500 rounded-lg h-24">
+                    emerald-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-emerald-600 rounded-lg h-24">
+                    emerald-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-emerald-700 rounded-lg h-24">
+                    emerald-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-emerald-800 rounded-lg h-24">
+                    emerald-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-emerald-900 rounded-lg h-24">
+                    emerald-900
+                </div>
+    
+                <!-- Teal -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-teal-100 rounded-lg h-24">
+                    teal-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-teal-200 rounded-lg h-24">
+                    teal-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-teal-300 rounded-lg h-24">
+                    teal-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-teal-400 rounded-lg h-24">
+                    teal-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-teal-500 rounded-lg h-24">
+                    teal-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-teal-600 rounded-lg h-24">
+                    teal-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-teal-700 rounded-lg h-24">
+                    teal-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-teal-800 rounded-lg h-24">
+                    teal-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-teal-900 rounded-lg h-24">
+                    teal-900
+                </div>
+    
+                <!-- Cyan -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-cyan-100 rounded-lg h-24">
+                    cyan-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-cyan-200 rounded-lg h-24">
+                    cyan-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-cyan-300 rounded-lg h-24">
+                    cyan-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-cyan-400 rounded-lg h-24">
+                    cyan-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-cyan-500 rounded-lg h-24">
+                    cyan-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-cyan-600 rounded-lg h-24">
+                    cyan-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-cyan-700 rounded-lg h-24">
+                    cyan-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-cyan-800 rounded-lg h-24">
+                    cyan-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-cyan-900 rounded-lg h-24">
+                    cyan-900
+                </div>
+    
+                <!-- Sky -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-sky-100 rounded-lg h-24">
+                    sky-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-sky-200 rounded-lg h-24">
+                    sky-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-sky-300 rounded-lg h-24">
+                    sky-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-sky-400 rounded-lg h-24">
+                    sky-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-sky-500 rounded-lg h-24">
+                    sky-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-sky-600 rounded-lg h-24">
+                    sky-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-sky-700 rounded-lg h-24">
+                    sky-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-sky-800 rounded-lg h-24">
+                    sky-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-sky-900 rounded-lg h-24">
+                    sky-900
+                </div>
+        
+                <!-- Bleu -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-blue-100 rounded-lg h-24">
+                    blue-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-blue-200 rounded-lg h-24">
+                    blue-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-blue-300 rounded-lg h-24">
+                    blue-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-blue-400 rounded-lg h-24">
+                    blue-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-blue-500 rounded-lg h-24">
+                    blue-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-blue-600 rounded-lg h-24">
+                    blue-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-blue-700 rounded-lg h-24">
+                    blue-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-blue-800 rounded-lg h-24">
+                    blue-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-blue-900 rounded-lg h-24">
+                    blue-900
+                </div>
+    
+                <!-- Indigo -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-indigo-100 rounded-lg h-24">
+                    indigo-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-indigo-200 rounded-lg h-24">
+                    indigo-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-indigo-300 rounded-lg h-24">
+                    indigo-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-indigo-400 rounded-lg h-24">
+                    indigo-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-indigo-500 rounded-lg h-24">
+                    indigo-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-indigo-600 rounded-lg h-24">
+                    indigo-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-indigo-700 rounded-lg h-24">
+                    indigo-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-indigo-800 rounded-lg h-24">
+                    indigo-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-indigo-900 rounded-lg h-24">
+                    indigo-900
+                </div>
+    
+                <!-- purple -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-violet-100 rounded-lg h-24">
+                    violet-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-violet-200 rounded-lg h-24">
+                    violet-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-violet-300 rounded-lg h-24">
+                    violet-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-violet-400 rounded-lg h-24">
+                    violet-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-violet-500 rounded-lg h-24">
+                    violet-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-violet-600 rounded-lg h-24">
+                    violet-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-violet-700 rounded-lg h-24">
+                    violet-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-violet-800 rounded-lg h-24">
+                    violet-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-violet-900 rounded-lg h-24">
+                    violet-900
+                </div>
+    
+                <!-- Purple -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-purple-100 rounded-lg h-24">
+                    purple-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-purple-200 rounded-lg h-24">
+                    purple-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-purple-300 rounded-lg h-24">
+                    purple-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-purple-400 rounded-lg h-24">
+                    purple-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-purple-500 rounded-lg h-24">
+                    purple-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-purple-600 rounded-lg h-24">
+                    purple-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-purple-700 rounded-lg h-24">
+                    purple-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-purple-800 rounded-lg h-24">
+                    purple-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-purple-900 rounded-lg h-24">
+                    purple-900
+                </div>
+    
+                <!-- Fuchsia -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-fuchsia-100 rounded-lg h-24">
+                    fuchsia-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-fuchsia-200 rounded-lg h-24">
+                    fuchsia-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-fuchsia-300 rounded-lg h-24">
+                    fuchsia-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-fuchsia-400 rounded-lg h-24">
+                    fuchsia-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-fuchsia-500 rounded-lg h-24">
+                    fuchsia-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-fuchsia-600 rounded-lg h-24">
+                    fuchsia-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-fuchsia-700 rounded-lg h-24">
+                    fuchsia-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-fuchsia-800 rounded-lg h-24">
+                    fuchsia-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-fuchsia-900 rounded-lg h-24">
+                    fuchsia-900
+                </div>
+    
+                <!-- Pink -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-pink-100 rounded-lg h-24">
+                    pink-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-pink-200 rounded-lg h-24">
+                    pink-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-pink-300 rounded-lg h-24">
+                    pink-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-pink-400 rounded-lg h-24">
+                    pink-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-pink-500 rounded-lg h-24">
+                    pink-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-pink-600 rounded-lg h-24">
+                    pink-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-pink-700 rounded-lg h-24">
+                    pink-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-pink-800 rounded-lg h-24">
+                    pink-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-pink-900 rounded-lg h-24">
+                    pink-900
+                </div>
+    
+                <!-- Rose -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-rose-100 rounded-lg h-24">
+                    rose-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-rose-200 rounded-lg h-24">
+                    rose-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-rose-300 rounded-lg h-24">
+                    rose-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-rose-400 rounded-lg h-24">
+                    rose-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-rose-500 rounded-lg h-24">
+                    rose-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-rose-600 rounded-lg h-24">
+                    rose-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-rose-700 rounded-lg h-24">
+                    rose-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-rose-800 rounded-lg h-24">
+                    rose-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-rose-900 rounded-lg h-24">
+                    rose-900
+                </div>
+    
+                <!-- Slate -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-slate-100 rounded-lg h-24">
+                    slate-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-slate-200 rounded-lg h-24">
+                    slate-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-slate-300 rounded-lg h-24">
+                    slate-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-slate-400 rounded-lg h-24">
+                    slate-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-slate-500 rounded-lg h-24">
+                    slate-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-slate-600 rounded-lg h-24">
+                    slate-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-slate-700 rounded-lg h-24">
+                    slate-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-slate-800 rounded-lg h-24">
+                    slate-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-slate-900 rounded-lg h-24">
+                    slate-900
+                </div>
+    
+                <!-- Gray -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-gray-100 rounded-lg h-24">
+                    gray-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-gray-200 rounded-lg h-24">
+                    gray-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-gray-300 rounded-lg h-24">
+                    gray-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-gray-400 rounded-lg h-24">
+                    gray-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-gray-500 rounded-lg h-24">
+                    gray-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-gray-600 rounded-lg h-24">
+                    gray-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-gray-700 rounded-lg h-24">
+                    gray-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-gray-800 rounded-lg h-24">
+                    gray-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-gray-900 rounded-lg h-24">
+                    gray-900
+                </div>
+    
+                <!-- Zinc -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-zinc-100 rounded-lg h-24">
+                    zinc-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-zinc-200 rounded-lg h-24">
+                    zinc-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-zinc-300 rounded-lg h-24">
+                    zinc-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-zinc-400 rounded-lg h-24">
+                    zinc-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-zinc-500 rounded-lg h-24">
+                    zinc-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-zinc-600 rounded-lg h-24">
+                    zinc-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-zinc-700 rounded-lg h-24">
+                    zinc-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-zinc-800 rounded-lg h-24">
+                    zinc-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-zinc-900 rounded-lg h-24">
+                    zinc-900
+                </div>
+    
+                <!-- Neutral -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-neutral-100 rounded-lg h-24">
+                    neutral-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-neutral-200 rounded-lg h-24">
+                    neutral-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-neutral-300 rounded-lg h-24">
+                    neutral-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-neutral-400 rounded-lg h-24">
+                    neutral-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-neutral-500 rounded-lg h-24">
+                    neutral-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-neutral-600 rounded-lg h-24">
+                    neutral-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-neutral-700 rounded-lg h-24">
+                    neutral-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-neutral-800 rounded-lg h-24">
+                    neutral-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-neutral-900 rounded-lg h-24">
+                    neutral-900
+                </div>
+    
+                <!-- Stone -->
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-stone-100 rounded-lg h-24">
+                    stone-100
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-stone-200 rounded-lg h-24">
+                    stone-200
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-stone-300 rounded-lg h-24">
+                    stone-300
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-stone-400 rounded-lg h-24">
+                    stone-400
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-stone-500 rounded-lg h-24">
+                    stone-500
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-stone-600 rounded-lg h-24">
+                    stone-600
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-stone-700 rounded-lg h-24">
+                    stone-700
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-stone-800 rounded-lg h-24">
+                    stone-800
+                </div>
+                <div class="flex items-center justify-center p-4 text-xs font-bold text-white bg-stone-900 rounded-lg h-24">
+                    stone-900
+                </div>
+            </div>
+        </section>
+
+        {# Cartes interactives avec hover #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Cartes interactives avec hover</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl">
+                    <img src="https://placehold.co/600x400" alt="Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Titre de la carte</h3>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <a href="#" class="inline-block text-blue-600 hover:text-blue-800 font-semibold transition duration-200">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        {# Boutons avec effet d'onde #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Boutons avec effet d'onde</h2>
+            <div class="space-x-4">
+                <button class="relative overflow-hidden px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg focus:outline-none group">
+                    <span class="absolute px-6 py-3 inset-0 w-full h-full bg-blue-800 transform scale-0 group-hover:scale-100 transition-all duration-300 ease-in-out">Test</span>
+                    Bouton 1
+                </button>
+                <button class="relative overflow-hidden px-6 py-3 bg-green-600 text-white font-semibold rounded-lg focus:outline-none group">
+                    <span class="absolute px-6 py-3 inset-0 w-full h-full bg-green-800 transform scale-0 group-hover:scale-100 transition-all duration-300 ease-in-out">Test</span>
+                    Bouton 2
+                </button>
+            </div>
+        </section>
+        
+        {# Barre de progression #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Barre de progression</h2>
+            <div class="w-full bg-gray-300 rounded-full h-4">
+                <div class="bg-blue-600 h-4 rounded-full" style="width: 60%"></div>
+            </div>
+            <div class="flex justify-between mt-2 text-sm text-gray-700">
+                <span>0%</span>
+                <span>60%</span>
+                <span>100%</span>
+            </div>
+        </section>
+        
+        {# Tableau #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Tableau interactif</h2>
+            <div class="overflow-hidden">
+                <table class="w-full table-auto">
+                    <thead class="hidden md:table-header-group">
+                        <tr class="bg-slate-800 text-white">
+                            <th class="px-6 py-3 text-left">Nom</th>
+                            <th class="px-6 py-3 text-left">Age</th>
+                            <th class="px-6 py-3 text-left">Ville</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="block md:table-row bg-white md:hover:bg-gray-100">
+                            <td class="block md:table-cell px-6 py-4 font-bold">John Doe</td>
+                            <td class="block md:table-cell px-6 py-4">28</td>
+                            <td class="block md:table-cell px-6 py-4">Paris</td>
+                        </tr>
+                        <tr class="block md:table-row bg-white md:hover:bg-gray-100">
+                            <td class="block md:table-cell px-6 py-4 font-bold">Jane Smith</td>
+                            <td class="block md:table-cell px-6 py-4">34</td>
+                            <td class="block md:table-cell px-6 py-4">Lyon</td>
+                        </tr>
+                        <tr class="block md:table-row bg-white md:hover:bg-gray-100">
+                            <td class="block md:table-cell px-6 py-4 font-bold">Alice Johnson</td>
+                            <td class="block md:table-cell px-6 py-4">22</td>
+                            <td class="block md:table-cell px-6 py-4">Marseille</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+            
+        {# Parallax #}
+        <section class="relative mb-12">
+            <div class="absolute inset-0 bg-fixed bg-center bg-cover h-80" style="background-image: url('https://placehold.co/1500x1000');"></div>
+            <div class="relative z-10 p-16 text-white text-center">
+                <h2 class="text-3xl font-bold mb-4">Effet Parallax</h2>
+                <p class="text-xl">Faites défiler pour voir l'effet parallax en action.</p>
+            </div>
+        </section>
+        
+        {# Elements + animations #}
+        <section class="mb-12 mt-36">
+            <h2 class="text-2xl font-semibold mb-4">Liste d'Éléments avec animation</h2>
+            <ul class="space-y-4">
+                <li class="p-4 border-2 border-gray-300 rounded-lg transition transform hover:bg-blue-500 hover:text-white hover:scale-103">
+                    <a href="#" class="block">Élément 1</a>
+                </li>
+                <li class="p-4 border-2 border-gray-300 rounded-lg transition transform hover:bg-blue-500 hover:text-white hover:scale-103">
+                    <a href="#" class="block">Élément 2</a>
+                </li>
+                <li class="p-4 border-2 border-gray-300 rounded-lg transition transform hover:bg-blue-500 hover:text-white hover:scale-103">
+                    <a href="#" class="block">Élément 3</a>
+                </li>
+                <li class="p-4 border-2 border-gray-300 rounded-lg transition transform hover:bg-blue-500 hover:text-white hover:scale-103">
+                    <a href="#" class="block">Élément 4</a>
+                </li>
+            </ul>
+        </section>
+
+        {# Cartes interactives #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Cartes Interactives</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group relative">
+                    <div class="w-full h-64 bg-gray-300 rounded-lg overflow-hidden group-hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/400x300" alt="Image produit" class="w-full h-full object-cover group-hover:opacity-50 transition">
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="text-white text-xl font-semibold">Produit 1</h3>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div class="w-full h-64 bg-gray-300 rounded-lg overflow-hidden group-hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/400x300" alt="Image produit" class="w-full h-full object-cover group-hover:opacity-50 transition">
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="text-white text-xl font-semibold">Produit 2</h3>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div class="w-full h-64 bg-gray-300 rounded-lg overflow-hidden group-hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/400x300" alt="Image produit" class="w-full h-full object-cover group-hover:opacity-50 transition">
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="text-white text-xl font-semibold">Produit 3</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {# Témoignages #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Témoignages</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 shadow-lg rounded-lg hover:shadow-2xl transition duration-300">
+                    <p class="text-gray-600">"Ce produit a changé ma vie! L'interface est super intuitive et facile à utiliser."</p>
+                    <p class="font-bold mt-4">Jean Dupont</p>
+                    <p class="text-gray-500">Développeur</p>
+                </div>
+                <div class="bg-white p-6 shadow-lg rounded-lg hover:shadow-2xl transition duration-300">
+                    <p class="text-gray-600">"Excellent service client et fonctionnalités incroyables. Hautement recommandé!"</p>
+                    <p class="font-bold mt-4">Marie Lemoine</p>
+                    <p class="text-gray-500">Designer</p>
+                </div>
+                <div class="bg-white p-6 shadow-lg rounded-lg hover:shadow-2xl transition duration-300">
+                    <p class="text-gray-600">"Une expérience utilisateur fluide et un excellent rapport qualité-prix. Très satisfait!"</p>
+                    <p class="font-bold mt-4">Thomas Bernard</p>
+                    <p class="text-gray-500">Entrepreneur</p>
+                </div>
+            </div>
+        </section>
+
+        {# Filter #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Effet de Flou au survol</h2>
+            <div class="relative group">
+                <img src="https://placehold.co/600x400?text=Image+Flou" alt="Image Flou" class="w-full h-auto transition duration-300 ease-in-out group-hover:filter group-hover:blur-sm">
+                <div class="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h3 class="text-2xl font-semibold">Titre au survol</h3>
+                </div>
+            </div>
+        </section>
+        
+        {# Line clamp #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Exemple avec Line Clamp</h2>
+            <div class="max-w-lg mx-auto">
+                <div class="overflow-hidden">
+                    <p class="text-gray-700 line-clamp-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id feugiat elit. Nulla facilisi. Vivamus ut ex purus. Aenean euismod euismod nisl, vel posuere nulla gravida at. Sed imperdiet eros ut feugiat gravida. Ut vulputate, lectus et feugiat feugiat, velit libero gravida mi, euismod tincidunt nisi eros vitae nunc. Curabitur dictum nulla nec nisi vulputate fermentum. Fusce egestas, nunc non tempor fringilla, velit purus egestas velit, nec convallis turpis nulla non lectus.
+                    </p>
+                </div>
+                <button class="mt-2 text-blue-500 hover:underline">
+                    Lire plus
+                </button>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Carte avec Line Clamp</h2>
+            <div class="max-w-xs mx-auto rounded-lg overflow-hidden shadow-lg bg-white">
+                <img src="https://placehold.co/400x200?text=Image" alt="Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold mb-2">Titre de la Carte</h3>
+                    <p class="text-gray-700 line-clamp-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras scelerisque felis at sapien efficitur, ut tincidunt nulla cursus. Vivamus non magna et purus vehicula suscipit. Curabitur at efficitur metus. Integer interdum sit amet orci a venenatis. Aliquam in ante vel ligula sodales ultricies. Suspendisse vulputate, eros sit amet cursus malesuada, ante enim auctor nisi, non consequat lorem justo et neque.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    const toast = document.getElementById('toast');
+    const showToastButton = document.getElementById('showToast');
+
+    showToastButton.addEventListener('click', () => {
+        toast.classList.remove('opacity-0', 'translate-y-12');
+        toast.classList.add('opacity-100', 'translate-y-0');
+
+        setTimeout(() => {
+            toast.classList.remove('opacity-100', 'translate-y-0');
+            toast.classList.add('opacity-0', 'translate-y-12');
+        }, 3000);
+    });
+</script>
+{% endblock javascripts %}
