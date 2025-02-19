@@ -1003,7 +1003,7 @@
 
 {% block javascripts %}
 <script>
-    // Toaster
+    // *********** Toaster ***********
     const toast = document.getElementById('toast');
     const showToastButton = document.getElementById('showToast');
 
@@ -1017,7 +1017,7 @@
         }, 3000);
     });
 
-    // Mobile menu
+    // *********** Mobile menu ***********
     const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
 
@@ -1025,7 +1025,7 @@
         mobileMenu.classList.toggle("hidden");
     });
 
-    // Slider
+    // *********** Slider ***********
     const prevButton = document.getElementById('prev');
     const nextButton = document.getElementById('next');
     const slider = document.getElementById('slider');
@@ -1053,7 +1053,7 @@
     // Initialisation du slider (pour que le premier slide soit visible dès le début)
     updateSlider();
 
-    // Accordion
+    // *********** Accordion ***********
     function toggleAccordion(id) {
         document.getElementById(`accordion-${id}`).classList.toggle("hidden");
     }
