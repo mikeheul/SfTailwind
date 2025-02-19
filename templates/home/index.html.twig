@@ -962,6 +962,19 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Accordion -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Accordion</h2>
+            <div class="rounded-md overflow-hidden">
+                <button class="w-full p-4 bg-gray-200 text-left" onclick="toggleAccordion(1)">Section 1</button>
+                <div id="accordion-1" class="hidden p-4 bg-white">Contenu de la section 1</div>
+            </div>
+            <div class="rounded-md overflow-hidden mt-2">
+                <button class="w-full p-4 bg-gray-200 text-left" onclick="toggleAccordion(2)">Section 2</button>
+                <div id="accordion-2" class="hidden p-4 bg-white">Contenu de la section 2</div>
+            </div>
+        </section>
     </div>
 {% endblock %}
 
@@ -981,11 +994,17 @@
         }, 3000);
     });
 
+    // Mobile menu
     const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
 
     menuBtn.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
     });
+
+    // Accordion
+    function toggleAccordion(id) {
+        document.getElementById(`accordion-${id}`).classList.toggle("hidden");
+    }
 </script>
 {% endblock javascripts %}
