@@ -963,7 +963,30 @@
             </div>
         </section>
         
-        <!-- Accordion -->
+        {# Slider #}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Slider</h2>
+            <div class="relative w-full overflow-hidden">
+                <div id="slider" class="flex transition-transform duration-500">
+                    <!-- Slide 1 -->
+                    <div class="w-full flex-shrink-0">
+                        <img src="https://placehold.co/1400x400?text=Slide 1" class="object-cover w-full">
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="w-full flex-shrink-0">
+                        <img src="https://placehold.co/1400x400?text=Slide 2" class="object-cover w-full">
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="w-full flex-shrink-0">
+                        <img src="https://placehold.co/1400x400?text=Slide 3" class="object-cover w-full">
+                    </div>
+                </div>
+                <button id="prev" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2">❮</button>
+                <button id="next" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2">❯</button>
+            </div>
+        </section>
+        
+        {# Accordion #} 
         <section class="mb-12">
             <h2 class="text-2xl font-semibold mb-4">Accordion</h2>
             <div class="rounded-md overflow-hidden">
@@ -1001,6 +1024,34 @@
     menuBtn.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
     });
+
+    // Slider
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    const slider = document.getElementById('slider');
+    const slides = slider.querySelectorAll('div');
+    let currentIndex = 0;
+
+    // Fonction pour mettre à jour la position du slider
+    function updateSlider() {
+        const slideWidth = slides[0].clientWidth; // Largeur de chaque slide
+        slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`; // Déplace le slider à gauche
+    }
+
+    // Gestion du bouton "précédent"
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+        updateSlider();
+    });
+
+    // Gestion du bouton "suivant"
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+        updateSlider();
+    });
+
+    // Initialisation du slider (pour que le premier slide soit visible dès le début)
+    updateSlider();
 
     // Accordion
     function toggleAccordion(id) {
